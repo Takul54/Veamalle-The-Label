@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>veamalle Hijab Collection</title>
+    <style>
+        /* ==========================================================================
+           1. RESET & BASE STYLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f2eb; 
+            color: #4a4238;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           2. NAVIGATION MENU (NAVBAR)
+           ========================================================================== */
+        nav {
+            background-color: #fffdf9;
+            border-bottom: 1px solid #e3decb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #4a4238;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu li {
+            cursor: pointer;
+            color: #6e6353;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .nav-menu li:hover, .nav-menu li.active {
+            color: #a65b32;
+            border-bottom: 2px solid #a65b32;
+        }
+
+        /* ==========================================================================
+           3. HERO OPENING BANNER (FOTO UTAMA BESAR)
+           ========================================================================== */
+        .hero-opening {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background-color: #dcd1c4;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .hero-opening img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(43, 36, 28, 0.75) 30%, rgba(0,0,0,0.1) 100%);
+            display: flex;
+            align-items: center;
+            padding-left: 10%;
+            color: #fffdf9;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            color: #f3e9dc;
+            line-height: 1.6;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #a65b32;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero-btn:hover {
+            background-color: #8a4825;
+        }
+
+        /* ==========================================================================
+           4. DASHBOARD / BANNER PROMO KATEGORI (3 FOTO)
+           ========================================================================== */
+        .dashboard-section {
+            margin-bottom: 50px;
+        }
+
+        .banner-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .banner-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: #a65b32;
+            margin: 10px auto 0 auto;
+        }
+
+        .banner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .banner-card {
+            position: relative;
+            height: 380px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            background-color: #eae7dc;
+            cursor: pointer;
+        }
+
+        .banner-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .banner-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            color: #ffffff;
+        }
+
+        .banner-overlay h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .banner-overlay p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* ==========================================================================
+           5. FOTO FOTO UNGGULAN (5 FOTO PRODUK DI DASHBOARD)
+           ========================================================================== */
+        .featured-section {
+            margin-bottom: 50px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Membuat susunan pas 5 kolom menyamping */
+            gap: 15px;
+        }
+
+        .featured-card {
+            background: #fffdf9;
+            border: 1px solid #e3decb;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .featured-img-box {
+            width: 100%;
+            height: 220px;
+            position: relative;
+            background-color: #eae7dc;
+        }
+
+        .featured-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #a65b32;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .featured-info {
+            padding: 12px;
+            text-align: center;
+        }
+
+        .featured-info h3 {
+            font-size: 0.85rem;
+            color: #332d26;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .featured-info p {
+            font-size: 0.75rem;
+            color: #8c7e6d;
+        }
+        
+        /* ==========================================================================
+           6. GRID FOTO IKLAN / PROMO TOKO (2 FOTO HORIZONTAL LEBAR)
+           ========================================================================== */
+        .ads-section {
+            margin-bottom: 60px;
+        }
+
+        .ads-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .ad-card {
+            background-color: #fffdf9;
+            border: 1px solid #e3decb;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .ad-image-box {
+            width: 100%;
+            height: 240px;
+            background-color: #eae7dc;
+        }
+
+        .ad-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ad-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .ad-info .ad-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ffffff;
+            background-color: #a65b32;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .ad-info h3 {
+            font-size: 1.1rem;
+            color: #332d26;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .ad-info p {
+            font-size: 0.9rem;
+            color: #7a6e5d;
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           7. HALAMAN HALAMAN MENU (KATALOG TERPISAH)
+           ========================================================================== */
+        .page-content {
+            display: none;
+            padding: 40px 0;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .page-content.active-page {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #332d26;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #8c7e6d;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .hijab-card {
+            background: #fffdf9;
+            border: 1px solid #e3decb;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .hijab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(140, 126, 109, 0.15);
+        }
+
+        .hijab-image-box {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            background-color: #eae7dc;
+        }
+
+        .hijab-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .brand-label {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background-color: rgba(243, 233, 220, 0.95);
+            color: #5c4d3c;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border: 1px solid #dcd1c4;
+            border-radius: 2px;
+            letter-spacing: 1px;
+        }
+
+        .hijab-info {
+            padding: 18px 15px;
+            background: #ffffff;
+            border-top: 1px solid #f5f2eb;
+            text-align: center;
+        }
+
+        .hijab-info h3 {
+            font-size: 1rem;
+            color: #332d26;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           8. DATA TOKO / FOOTER
+           ========================================================================== */
+        footer {
+            background-color: #332d26;
+            color: #e3decb;
+            padding: 40px 0;
+            margin-top: auto;
+            border-top: 3px solid #a38463;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-brand h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fffdf9;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: #bfae99;
+            max-width: 350px;
+            line-height: 1.5;
+        }
+
+        .footer-contacts h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fffdf9;
+            margin-bottom: 15px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-list a {
+            color: #e3decb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-list a:hover {
+            color: #f3e9dc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #4a4238;
+            font-size: 0.8rem;
+            color: #bfae99;
+        }
+
+        /* ==========================================================================
+           9. RESPONSIVE LAYOUT (MOBILE)
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .featured-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .catalog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            .nav-menu {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-opening {
+                height: 350px;
+            }
+            .hero-overlay {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .banner-grid {
+                grid-template-columns: 1fr;
+            }
+            .banner-card {
+                height: 280px;
+            }
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ads-grid {
+                grid-template-columns: 1fr;
+            }
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGASI / MENU UTAMA -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo" onclick="switchPage('dashboard')">veamalle</div>
+            <ul class="nav-menu">
+                <li id="menu-dashboard" class="active" onclick="switchPage('dashboard')">Dashboard</li>
+                <li id="menu-paris-voal" onclick="switchPage('paris-voal')">Paris Voal Premium</li>
+                <li id="menu-paris-jadul" onclick="switchPage('paris-jadul')">Paris Jadul</li>
+                <li id="menu-printing" onclick="switchPage('printing')">Hijab Printing</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==========================================================================
+       HALAMAN 1: DASHBOARD UTAMA
+       ========================================================================== -->
+    <div id="page-dashboard" class="page-content active-page">
+        
+        <!-- FOTO OPENING / HERO BANNER UTAMA -->
+        <section class="hero-opening">
+            <img src="logo1.jpg" alt="veamalle Signature Banner">
+            <div class="hero-overlay">
+                <div class="hero-text">
+                    <h1>veamalle Hijab</h1>
+                    <p>Temukan keanggunan sejati dalam helai kain premium pilihan. Dirancang khusus untuk kenyamanan beraktivitas sepanjang hari dengan keselarasan warna profesional.</p>
+                    <button class="hero-btn" onclick="document.getElementById('categories-section').scrollIntoView({behavior: 'smooth'})">Lihat Koleksi</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU KATEGORI DENGAN 3 FOTO -->
+        <section id="categories-section" class="container dashboard-section">
+            <h2 class="banner-title">Pilih Kategori Koleksi</h2>
+            <div class="banner-grid">
+                
+                <!-- Foto Dashboard 1 -->
+                <div class="banner-card" onclick="switchPage('paris-voal')">
+                    <img src="GANTI_DENGAN_FOTO_DASHBOARD_1" alt="Paris Voal Premium Collection">
+                    <div class="banner-overlay">
+                        <h2>Paris Voal Premium</h2>
+                        <p>Kualitas voal terbaik, tegak di dahi & super nyaman</p>
+                    </div>
+                </div>
+
+                <!-- Foto Dashboard 2 -->
+                <div class="banner-card" onclick="switchPage('paris-jadul')">
+                    <img src="GANTI_DENGAN_FOTO_DASHBOARD_2" alt="Paris Jadul Collection">
+                    <div class="banner-overlay">
+                        <h2>Paris Jadul</h2>
+                        <p>Koleksi legendaris dengan material khas yang otentik</p>
+                    </div>
+                </div>
+
+                <!-- Foto Dashboard 3 -->
+                <div class="banner-card" onclick="switchPage('printing')">
+                    <img src="GANTI_DENGAN_FOTO_DASHBOARD_3" alt="Hijab Printing Collection">
+                    <div class="banner-overlay">
+                        <h2>Hijab Printing</h2>
+                        <p>Motif eksklusif nan elegan untuk tampilan mewah Anda</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BAGIAN KOLEKSI UNGGULAN (5 FOTO PRODUK TERBAIK) -->
+        <section class="container featured-section">
+            <h2 class="banner-title">Koleksi Unggulan Kami</h2>
+            <div class="featured-grid">
+                
+                <!-- Foto Unggulan 1 -->
+                <div class="featured-card">
+                    <div class="featured-img-box">
+                        <img src="GANTI_DENGAN_FOTO_UNGGULAN_1" alt="Unggulan 1">
+                        <span class="featured-badge">Best Seller</span>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Premium Black</h3>
+                        <p>Paris Voal</p>
+                    </div>
+                </div>
+
+                <!-- Foto Unggulan 2 -->
+                <div class="featured-card">
+                    <div class="featured-img-box">
+                        <img src="GANTI_DENGAN_FOTO_UNGGULAN_2" alt="Unggulan 2">
+                        <span class="featured-badge">Best Seller</span>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Warm Wood</h3>
+                        <p>Paris Voal</p>
+                    </div>
+                </div>
+
+                <!-- Foto Unggulan 3 -->
+                <div class="featured-card">
+                    <div class="featured-img-box">
+                        <img src="GANTI_DENGAN_FOTO_UNGGULAN_3" alt="Unggulan 3">
+                        <span class="featured-badge">New Arrival</span>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Soft Cream</h3>
+                        <p>Paris Jadul</p>
+                    </div>
+                </div>
+
+                <!-- Foto Unggulan 4 -->
+                <div class="featured-card">
+                    <div class="featured-img-box">
+                        <img src="GANTI_DENGAN_FOTO_UNGGULAN_4" alt="Unggulan 4">
+                        <span class="featured-badge">Favorite</span>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Deep Maroon</h3>
+                        <p>Hijab Printing</p>
+                    </div>
+                </div>
+
+                <!-- Foto Unggulan 5 -->
+                <div class="featured-card">
+                    <div class="featured-img-box">
+                        <img src="GANTI_DENGAN_FOTO_UNGGULAN_5" alt="Unggulan 5">
+                        <span class="featured-badge">Favorite</span>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Warm Taupe</h3>
+                        <p>Paris Jadul</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BAGIAN FOTO FOTO IKLAN INTERNAL -->
+        <section class="container ads-section">
+            <h2 class="banner-title">Promo & Info Terkini</h2>
+            <div class="ads-grid">
+                
+                <!-- Foto Iklan 1 -->
+                <div class="ad-card">
+                    <div class="ad-image-box">
+                        <img src="GANTI_DENGAN_FOTO_IKLAN_1" alt="Iklan Promo veamalle">
+                    </div>
+                    <div class="ad-info">
+                        <span class="ad-tag">Special Promo</span>
+                        <h3>Gratis Ongkir Seluruh Indonesia</h3>
+                        <p>Dapatkan gratis ongkos kirim tanpa minimal pembelian untuk setiap pemesanan produk seri Paris Voal edisi bulan ini.</p>
+                    </div>
+                </div>
+
+                <!-- Foto Iklan 2 -->
+                <div class="ad-card">
+                    <div class="ad-image-box">
+                        <img src="GANTI_DENGAN_FOTO_IKLAN_2" alt="Iklan Event/Produk">
+                    </div>
+                    <div class="ad-info">
+                        <span class="ad-tag">New Season</span>
+                        <h3>Kemasan Eksklusif Baru</h3>
+                        <p>Setiap pembelian produk premium kini dilengkapi dengan *hardbox* mewah dan kartu ucapan khusus, sangat cocok untuk hadiah orang terkasih.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ==========================================================================
+       HALAMAN 2: HIJAB PARIS VOAL PREMIUM
+       ========================================================================== -->
+    <div id="page-paris-voal" class="container page-content">
+        <h2 class="section-title">Paris Voal Premium</h2>
+        <p class="section-subtitle">Koleksi Voal Eksklusif dengan pilihan warna hangat dan profesional</p>
+        
+        <main class="catalog-grid">
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/ash brown.jpeg" alt="ash brown">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>ash brown</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/bisquit.jpeg" alt="biscuit">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>biscuit</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/browni.jpeg" alt="brownie">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>brownie</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/butter pistachio.jpeg" alt="butter pistachio">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>butter pistachio</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/Dark Choco.jpeg" alt="dark choco">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>dark choco</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/dusty mauve.jpeg" alt="dusty mauve">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>dusty mauve</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/dusty.jpeg" alt="dusty pink">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>dusty pink</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/hitam.jpeg" alt="hitam">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>hitam</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/light grey.jpeg" alt="light grey">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>light grey</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/maroon.jpeg" alt="maroon">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>maroon</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/mocca.jpeg" alt="mocca">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>mocca</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/navy.jpeg" alt="navy">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>navy</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/putih bersih.jpeg" alt="putih">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>putih bersih</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/Taup.jpeg" alt="taupe">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>taupe</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="voal/wood.jpeg" alt="wood">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>wood</h3>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ==========================================================================
+       HALAMAN 3: HIJAB PARIS JADUL
+       ========================================================================== -->
+    <div id="page-paris-jadul" class="container page-content">
+        <h2 class="section-title">Paris Jadul</h2>
+        <p class="section-subtitle">Kembali ke kenyamanan klasik dengan serat kain yang ikonik</p>
+        
+        <main class="catalog-grid">
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Soft Cream">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Soft Cream</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Latte">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Latte</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Soft Cream">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Soft Cream</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Latte">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Latte</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Soft Cream">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Soft Cream</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Latte">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Latte</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Soft Cream">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Soft Cream</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Latte">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Latte</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Warm Taupe">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Warm Taupe</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="GANTI_DENGAN_LINK_FOTO_KAMU" alt="Hijab Mocha">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>Mocha</h3>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ==========================================================================
+       HALAMAN 4: HIJAB PRINTING
+       ========================================================================== -->
+    <div id="page-printing" class="container page-content">
+        <h2 class="section-title">Hijab Printing</h2>
+        <p class="section-subtitle">Koleksi corak pattern premium eksklusif limited edition</p>
+        
+        <main class="catalog-grid">
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="printing/mt101.jpeg" alt="mt101">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>mt101</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="printing/mt102.jpeg" alt="mt102">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>mt102</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="printing/mt103.jpeg" alt="mt103">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>mt103</h3>
+                </div>
+            </div>
+            <div class="hijab-card">
+                <div class="hijab-image-box">
+                    <img src="printing/mt104.jpeg" alt="mt104">
+                    <span class="brand-label">veamalle</span>
+                </div>
+                <div class="hijab-info">
+                    <h3>mt104</h3>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- TAMPILAN PALING BAWAH (FOOTER DATA TOKO) -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>veamalle</h2>
+                <p>Menyediakan koleksi hijab berkualitas tinggi dengan sentuhan warna profesional untuk menunjang penampilan sehari-hari Anda.</p>
+            </div>
+            <div class="footer-contacts">
+                <h3>Hubungi Kami</h3>
+                <ul class="contact-list">
+                    <li><strong>WhatsApp:</strong> <a href="https://wa.me/628123456789" target="_blank">+62 812-3456-789</a></li>
+                    <li><strong>Telepon:</strong> +62 21-5555-432</li>
+                    <li><strong>Email:</strong> <a href="mailto:veamalle.label@gmail.com">veamalle.label@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 veamalle Hijab Collection. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT SYSTEM -->
+    <script>
+        function switchPage(pageId) {
+            const allPages = document.querySelectorAll('.page-content');
+            allPages.forEach(page => {
+                page.classList.remove('active-page');
+            });
+
+            const allMenus = document.querySelectorAll('.nav-menu li');
+            allMenus.forEach(menu => {
+                menu.classList.remove('active');
+            });
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if(targetPage) {
+                targetPage.classList.add('active-page');
+            }
+
+            const targetMenu = document.getElementById('menu-' + pageId);
+            if(targetMenu) {
+                targetMenu.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
